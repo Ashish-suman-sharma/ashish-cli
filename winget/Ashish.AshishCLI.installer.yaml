@@ -38,24 +38,11 @@ FileExtensions:
 - cc
 - cxx
 - ts
-Dependencies:
-  PackageDependencies:
-  - PackageIdentifier: OpenJS.NodeJS
-    MinimumVersion: 14.0.0
 Installers:
 - Architecture: x64
-  InstallerUrl: https://registry.npmjs.org/ashish-cli/-/ashish-cli-1.0.0.tgz
-  InstallerSha256: <SHA256_HASH_TO_BE_FILLED>
-  NestedInstallerType: portable
-  NestedInstallerFiles:
-  - RelativeFilePath: package\bin\ashish
-    PortableCommandAlias: ashish
-- Architecture: x86
-  InstallerUrl: https://registry.npmjs.org/ashish-cli/-/ashish-cli-1.0.0.tgz
-  InstallerSha256: <SHA256_HASH_TO_BE_FILLED>
-  NestedInstallerType: portable
-  NestedInstallerFiles:
-  - RelativeFilePath: package\bin\ashish
-    PortableCommandAlias: ashish
+  InstallerUrl: https://github.com/YOUR_USERNAME/ashish-cli/releases/download/v1.0.0/ashish.exe
+  InstallerSha256: 49399D3ECF14169513B5750FA0F0366D0AC6F4AD870065BA73244D1C346E1D39
+  InstallerType: portable
+  PortableCommandAlias: ashish
 ManifestType: installer
 ManifestVersion: 1.6.0

@@ -5,25 +5,29 @@ PackageIdentifier: Ashish.AshishCLI
 PackageVersion: 1.0.0
 PackageLocale: en-US
 Publisher: Ashish
-PublisherUrl: https://github.com/yourusername/ashish-cli
-PublisherSupportUrl: https://github.com/yourusername/ashish-cli/issues
+PublisherUrl: https://github.com/YOUR_USERNAME/ashish-cli
+PublisherSupportUrl: https://github.com/YOUR_USERNAME/ashish-cli/issues
 Author: Ashish
 PackageName: Ashish CLI
-PackageUrl: https://github.com/yourusername/ashish-cli
+PackageUrl: https://github.com/YOUR_USERNAME/ashish-cli
 License: MIT
-LicenseUrl: https://github.com/yourusername/ashish-cli/blob/main/LICENSE
+LicenseUrl: https://github.com/YOUR_USERNAME/ashish-cli/blob/main/LICENSE
 Copyright: Copyright (c) 2025 Ashish
-CopyrightUrl: https://github.com/yourusername/ashish-cli/blob/main/LICENSE
+CopyrightUrl: https://github.com/YOUR_USERNAME/ashish-cli/blob/main/LICENSE
 ShortDescription: Universal Code Runner CLI - Execute code in multiple languages without local compilers
 Description: |-
   Ashish CLI is a cross-platform command-line tool that allows you to execute code files in multiple programming languages without installing any local compilers or interpreters. 
   
   Features:
-  - Support for 20+ programming languages (Python, C++, Java, JavaScript, Go, Rust, Ruby, PHP, C#, and more)
-  - Remote code execution using free APIs
+  - Support for 19+ programming languages (Python, C++, Java, JavaScript, Go, Rust, Ruby, PHP, C#, Swift, Kotlin, Scala, Haskell, R, Julia, Lua, Perl)
+  - Remote code execution using Judge0 and Piston APIs
   - Automatic language detection from file extensions
   - Interactive programs with input file support
   - Beautiful colored terminal output
+  - Cross-platform compatibility (Windows, macOS, Linux)
+  - Zero local dependencies - no need to install compilers
+  - JSON output format for automation
+  - Configurable API endpoints and timeouts
   - Error handling with clear messages
   - JSON output format for automation
   - Cross-platform compatibility (Windows, macOS, Linux)

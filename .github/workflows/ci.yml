@@ -1,0 +1,183 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+  test:
+    name: Test Suite
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16, 18, 20]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run linter
+      run: npm run lint --if-present
+      
+    - name: Run tests
+      run: npm test --if-present
+      
+    - name: Test CLI functionality
+      run: |
+        node src/index.js --version
+        node src/index.js --help
+        
+  build:
+    name: Build Binary
+    needs: test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build binary
+      run: npm run build
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ashish-cli-${{ matrix.os }}
+        path: dist/
+        
+  publish-npm:
+    name: Publish to npm
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+  create-release-assets:
+    name: Create Release Assets
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      
+    - name: Create release assets
+      run: |
+        mkdir -p release-assets
+        # Package Linux binary
+        tar -czf release-assets/ashish-cli-linux-x64.tar.gz -C ashish-cli-ubuntu-latest .
+        # Package Windows binary
+        zip -r release-assets/ashish-cli-windows-x64.zip ashish-cli-windows-latest/
+        # Package macOS binary
+        tar -czf release-assets/ashish-cli-macos-x64.tar.gz -C ashish-cli-macos-latest .
+        
+    - name: Upload release assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: release-assets/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-chocolatey:
+    name: Update Chocolatey Package
+    needs: [test, build]
+    runs-on: windows-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Update Chocolatey manifest
+      run: |
+        $version = "${{ github.event.release.tag_name }}".TrimStart('v')
+        $url = "https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/ashish-cli-windows-x64.zip"
+        
+        # Update version in chocolatey manifest
+        (Get-Content chocolatey/ashish-cli.nuspec) -replace '<version>.*</version>', "<version>$version</version>" | Set-Content chocolatey/ashish-cli.nuspec
+        (Get-Content chocolatey/tools/chocolateyinstall.ps1) -replace 'url\s*=\s*"[^"]*"', "url = `"$url`"" | Set-Content chocolatey/tools/chocolateyinstall.ps1
+        
+    - name: Create Chocolatey package
+      run: |
+        cd chocolatey
+        choco pack
+        
+    - name: Upload to Chocolatey (if API key available)
+      if: env.CHOCOLATEY_API_KEY != ''
+      run: |
+        cd chocolatey
+        choco push *.nupkg -s https://push.chocolatey.org/ -k $env:CHOCOLATEY_API_KEY
+      env:
+        CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run security audit
+      run: npm audit --audit-level=high
+      
+    - name: Run dependency check
+      uses: actions/dependency-review-action@v3
+      if: github.event_name == 'pull_request'

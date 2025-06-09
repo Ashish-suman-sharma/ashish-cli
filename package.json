@@ -9,8 +9,6 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "node test.js",
-    "build": "pkg . --targets node18-win-x64 --output dist/ashish",
-    "lint": "echo 'No linter configured'",
     "dev": "node src/index.js"
   },
   "keywords": [
@@ -36,8 +34,5 @@
     "chalk": "^4.1.2",
     "commander": "^14.0.0",
     "fs-extra": "^11.3.0"
-  },
-  "devDependencies": {
-    "pkg": "^5.8.1"
   }
 }

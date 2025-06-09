@@ -1,0 +1,61 @@
+# Created using wingetcreate 1.6.1.0
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.6.0.schema.json
+
+PackageIdentifier: Ashish.AshishCLI
+PackageVersion: 1.0.0
+Platform:
+- Windows.Desktop
+MinimumOSVersion: 10.0.0.0
+InstallerType: portable
+Scope: user
+InstallModes:
+- silent
+- silentWithProgress
+UpgradeBehavior: install
+Commands:
+- ashish
+FileExtensions:
+- py
+- cpp
+- java
+- js
+- go
+- rs
+- rb
+- php
+- cs
+- kt
+- swift
+- scala
+- dart
+- lua
+- pl
+- r
+- sh
+- f90
+- pas
+- c
+- cc
+- cxx
+- ts
+Dependencies:
+  PackageDependencies:
+  - PackageIdentifier: OpenJS.NodeJS
+    MinimumVersion: 14.0.0
+Installers:
+- Architecture: x64
+  InstallerUrl: https://registry.npmjs.org/ashish-cli/-/ashish-cli-1.0.0.tgz
+  InstallerSha256: <SHA256_HASH_TO_BE_FILLED>
+  NestedInstallerType: portable
+  NestedInstallerFiles:
+  - RelativeFilePath: package\bin\ashish
+    PortableCommandAlias: ashish
+- Architecture: x86
+  InstallerUrl: https://registry.npmjs.org/ashish-cli/-/ashish-cli-1.0.0.tgz
+  InstallerSha256: <SHA256_HASH_TO_BE_FILLED>
+  NestedInstallerType: portable
+  NestedInstallerFiles:
+  - RelativeFilePath: package\bin\ashish
+    PortableCommandAlias: ashish
+ManifestType: installer
+ManifestVersion: 1.6.0

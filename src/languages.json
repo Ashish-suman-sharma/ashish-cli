@@ -1,0 +1,140 @@
+{
+  ".c": {
+    "name": "C",
+    "id": 50,
+    "pistonName": "c",
+    "pistonVersion": "*"
+  },
+  ".cpp": {
+    "name": "C++",
+    "id": 54,
+    "pistonName": "cpp",
+    "pistonVersion": "*"
+  },
+  ".cc": {
+    "name": "C++",
+    "id": 54,
+    "pistonName": "cpp",
+    "pistonVersion": "*"
+  },
+  ".cxx": {
+    "name": "C++",
+    "id": 54,
+    "pistonName": "cpp",
+    "pistonVersion": "*"
+  },
+  ".java": {
+    "name": "Java",
+    "id": 62,
+    "pistonName": "java",
+    "pistonVersion": "*"
+  },
+  ".py": {
+    "name": "Python",
+    "id": 71,
+    "pistonName": "python",
+    "pistonVersion": "*"
+  },
+  ".js": {
+    "name": "JavaScript",
+    "id": 63,
+    "pistonName": "javascript",
+    "pistonVersion": "*"
+  },
+  ".ts": {
+    "name": "TypeScript",
+    "id": 74,
+    "pistonName": "typescript",
+    "pistonVersion": "*"
+  },
+  ".cs": {
+    "name": "C#",
+    "id": 51,
+    "pistonName": "csharp",
+    "pistonVersion": "*"
+  },
+  ".go": {
+    "name": "Go",
+    "id": 60,
+    "pistonName": "go",
+    "pistonVersion": "*"
+  },
+  ".rs": {
+    "name": "Rust",
+    "id": 73,
+    "pistonName": "rust",
+    "pistonVersion": "*"
+  },
+  ".rb": {
+    "name": "Ruby",
+    "id": 72,
+    "pistonName": "ruby",
+    "pistonVersion": "*"
+  },
+  ".php": {
+    "name": "PHP",
+    "id": 68,
+    "pistonName": "php",
+    "pistonVersion": "*"
+  },
+  ".swift": {
+    "name": "Swift",
+    "id": 83,
+    "pistonName": "swift",
+    "pistonVersion": "*"
+  },
+  ".kt": {
+    "name": "Kotlin",
+    "id": 78,
+    "pistonName": "kotlin",
+    "pistonVersion": "*"
+  },
+  ".scala": {
+    "name": "Scala",
+    "id": 81,
+    "pistonName": "scala",
+    "pistonVersion": "*"
+  },
+  ".pl": {
+    "name": "Perl",
+    "id": 85,
+    "pistonName": "perl",
+    "pistonVersion": "*"
+  },
+  ".r": {
+    "name": "R",
+    "id": 80,
+    "pistonName": "r",
+    "pistonVersion": "*"
+  },
+  ".lua": {
+    "name": "Lua",
+    "id": 64,
+    "pistonName": "lua",
+    "pistonVersion": "*"
+  },
+  ".sh": {
+    "name": "Bash",
+    "id": 46,
+    "pistonName": "bash",
+    "pistonVersion": "*"
+  },
+  ".dart": {
+    "name": "Dart",
+    "id": 90,
+    "pistonName": "dart",
+    "pistonVersion": "*"
+  },
+  ".f90": {
+    "name": "Fortran",
+    "id": 59,
+    "pistonName": "fortran",
+    "pistonVersion": "*"
+  },
+  ".pas": {
+    "name": "Pascal",
+    "id": 67,
+    "pistonName": "pascal",
+    "pistonVersion": "*"
+  }
+}

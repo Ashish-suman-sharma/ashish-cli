@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>ashish-cli</id>
+    <version>1.0.0</version>
+    <packageSourceUrl>https://github.com/yourusername/ashish-cli</packageSourceUrl>
+    <owners>Ashish</owners>
+    <title>Ashish CLI - Universal Code Runner</title>
+    <authors>Ashish</authors>
+    <projectUrl>https://github.com/yourusername/ashish-cli</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/yourusername/ashish-cli/main/icon.png</iconUrl>
+    <copyright>Copyright (c) 2025 Ashish</copyright>
+    <licenseUrl>https://github.com/yourusername/ashish-cli/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/yourusername/ashish-cli</projectSourceUrl>
+    <docsUrl>https://github.com/yourusername/ashish-cli#readme</docsUrl>
+    <bugTrackerUrl>https://github.com/yourusername/ashish-cli/issues</bugTrackerUrl>
+    <tags>cli code-runner compiler programming multi-language remote-execution development coding</tags>
+    <summary>Universal Code Runner CLI - Execute code in multiple languages without local compilers</summary>
+    <description><![CDATA[
+Ashish CLI is a cross-platform command-line tool that allows you to execute code files in multiple programming languages without installing any local compilers or interpreters.
+
+## Features
+
+- **Multi-language Support**: 20+ programming languages (Python, C++, Java, JavaScript, Go, Rust, Ruby, PHP, C#, and more)
+- **Remote Execution**: Uses free Piston API for code execution
+- **Language Detection**: Automatic detection from file extensions
+- **Interactive Programs**: Support for stdin input via files
+- **Beautiful Output**: Colored terminal output with clear error messages
+- **Cross-platform**: Works on Windows, macOS, and Linux
+- **No Dependencies**: No need to install Python, Java, C++, etc.
+
+## Usage
+
+```
+ashish hello.py
+ashish program.cpp
+ashish Main.java
+ashish script.js -i input.txt
+```
+
+## Supported Languages
+
+C, C++, Java, Python, JavaScript, TypeScript, Go, Rust, Ruby, PHP, C#, Kotlin, Swift, Scala, Dart, Lua, Perl, R, Bash, Fortran, Pascal
+
+## Commands
+
+- `ashish <file>` - Execute code file
+- `ashish languages` - List supported languages
+- `ashish config` - Show configuration
+- `ashish --help` - Display help
+
+Simply run your code files without installing any compilers!
+]]></description>
+    <releaseNotes>
+Initial release of Ashish CLI:
+- Multi-language support for 20+ programming languages
+- Remote code execution via Piston API
+- Interactive program support with input files
+- Verbose and JSON output modes
+- Cross-platform compatibility
+- No local compiler installation required
+    </releaseNotes>
+    <dependencies>
+      <dependency id="nodejs" version="14.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

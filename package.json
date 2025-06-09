@@ -1,10 +1,10 @@
 {
   "name": "ashish-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal Code Runner CLI - Execute code in multiple languages without local compilers",
   "main": "src/index.js",
   "bin": {
-    "ashish": "./src/index.js"
+    "ashish": "src/index.js"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ashish-suman-sharma/ashish-cli.git"
+    "url": "git+https://github.com/ashish-suman-sharma/ashish-cli.git"
   },
   "dependencies": {
     "axios": "^1.9.0",

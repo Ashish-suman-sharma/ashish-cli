@@ -5,15 +5,15 @@ PackageIdentifier: Ashish.AshishCLI
 PackageVersion: 1.0.0
 PackageLocale: en-US
 Publisher: Ashish
-PublisherUrl: https://github.com/YOUR_USERNAME/ashish-cli
-PublisherSupportUrl: https://github.com/YOUR_USERNAME/ashish-cli/issues
+PublisherUrl: https://github.com/ashish-suman-sharma/ashish-cli
+PublisherSupportUrl: https://github.com/ashish-suman-sharma/ashish-cli/issues
 Author: Ashish
 PackageName: Ashish CLI
-PackageUrl: https://github.com/YOUR_USERNAME/ashish-cli
+PackageUrl: https://github.com/ashish-suman-sharma/ashish-cli
 License: MIT
-LicenseUrl: https://github.com/YOUR_USERNAME/ashish-cli/blob/main/LICENSE
+LicenseUrl: https://github.com/ashish-suman-sharma/ashish-cli/blob/main/LICENSE
 Copyright: Copyright (c) 2025 Ashish
-CopyrightUrl: https://github.com/YOUR_USERNAME/ashish-cli/blob/main/LICENSE
+CopyrightUrl: https://github.com/ashish-suman-sharma/ashish-cli/blob/main/LICENSE
 ShortDescription: Universal Code Runner CLI - Execute code in multiple languages without local compilers
 Description: |-
   Ashish CLI is a cross-platform command-line tool that allows you to execute code files in multiple programming languages without installing any local compilers or interpreters. 
@@ -67,3 +67,4 @@ Documentations:
   DocumentUrl: https://www.npmjs.com/package/ashish-cli
 ManifestType: defaultLocale
 ManifestVersion: 1.6.0
+
